@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Results</title>
+  <link rel='stylesheet' href="/static/styles.css">
+</head>
+<body>
+  <% if (books.length > 0) { %>
+    <div class="container">
+      <% books.forEach(book => { %>
+        <div class="book-details">
+          <strong class="title">Title:</strong> <%= book.title %><br>
+          <% if (book.subtitle) { %>
+            <strong>Subtitle:</strong> <%= book.subtitle %><br>
+          <% } %>
+          <% if (book.publisher) { %>
+            <strong class="meta">Publisher:</strong> <%= book.publisher %><br>
+          <% } %>
+          <% if (book.publishedDate) { %>
+            <strong class="meta">Published Date:</strong> <%= book.publishedDate %><br>
+          <% } %>
+          <% if (book.authors) { %>
+            <strong class="meta">Author:</strong> <%= book.authors %><br>
+          <% } %>
+          <% if (book.description) { %>
+            <strong class="description">Description:</strong> <%= book.description %><br>
+          <% } %>
+          <% if (book.rating) { %>
+            <strong class="rating">Rating:</strong> <%=book.rating %><br>
+          <% } %>
+          <% if (book.pagecount) { %>
+            <strong class="meta">pageCount:</strong> <%=book.pagecount %><br>
+          <% } %>
+          <% if (book.categories) { %>
+            <strong class="meta">Categories:</strong> <%=book.categories %><br>
+          <% } %>
+          <% if (book.language) { %>
+            <strong class="meta">Language:</strong> <%=book.language %><br>
+          <% } %>
+          <p>click on go back link below to search for another book</p>
+          <a href="/dashboard">Go back</a>
+        </div>
+          <div class="book-image" >
+            <% if (book.imglink) { %>
+              <img src="<%= book.imglink %>">
+            <% } %>
+          </div>
+      <% }); %>
+    </div>
+  <% } else { %>
+    <p>No books found</p>
+  <% } %>
+</body>
+</html>
