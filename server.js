@@ -45,7 +45,7 @@ app.post('/signup',async(req,res)=>{
         email,
         password:hashing,
     });
-    res.redirect('/login')
+    res.render('page');
 });
 
 //login page
